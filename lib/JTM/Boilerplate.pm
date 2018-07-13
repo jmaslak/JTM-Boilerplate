@@ -6,6 +6,9 @@
 package JTM::Boilerplate;
 # ABSTRACT: Default Boilerplate for Joelle Maslak's Code
 
+use strict;
+use warnings;
+
 =head1 SYNOPSIS
 
   use JTM::Boilerplate 'script';
