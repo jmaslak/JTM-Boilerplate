@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+2.190670  2019-03-08 15:31:43-07:00 America/Denver
+ Joelle Maslak <jmaslak@antelope.net>
+ * Remove Net::XMPP dependency
+
 2.182001  2018-07-19 09:43:26-06:00 America/Denver
  Joelle Maslak <jmaslak@antelope.net>
  * Rename repository
