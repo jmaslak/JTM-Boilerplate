@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015-2017 Joelle Maslak
+# Copyright (C) 2015-2020 Joelle Maslak
 # All Rights Reserved - See License
 #
 
@@ -77,7 +77,7 @@ sub import ( $self, $type = 'script' ) {
     English->import::into($target);
     Smart::Comments->import::into( $target, '-ENV', '###' );
 
-    feature->import::into( $target, 'postderef' );    # Not needed if feature budle >= 5.23.1
+    feature->import::into( $target, 'postderef' );    # Not needed if feature bundle >= 5.23.1
 
     # We haven't been using this
     # feature->import::into($target, 'refaliasing');
@@ -98,6 +98,15 @@ sub import ( $self, $type = 'script' ) {
     # For "re 'strict'" feature
     warnings->unimport::out_of( $target, 'experimental::re_strict' );
     re->import( 'strict' );
+
+    if ( $PERL_VERSION ge v5.32.0 ) {
+        # Turn off indirect syntax
+        feature->unimport::out_of( $target, 'indirect' );
+
+        # Turn on isa
+        feature->import::into( $target, 'isa' );
+        warnings->unimport::out_of( $target, 'experimental::isa' );
+    }
 
     return;
 }
