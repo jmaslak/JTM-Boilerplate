@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+2.202310  2020-08-18 16:22:33+00:00 UTC
  Joelle Maslak <jmaslak@antelope.net>
  * Enable "no feature qw(indirect)" on 5.32+
  * Enable isa operator on 5.32+
