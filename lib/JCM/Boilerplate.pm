@@ -108,6 +108,18 @@ sub import ( $self, $type = 'script' ) {
         warnings->unimport::out_of( $target, 'experimental::isa' );
     }
 
+    if ( $PERL_VERSION ge v5.34.0 ) {
+        # Turn off multidimensional "array" emulation
+        feature->unimport::out_of( $target, 'multidimensional' );
+
+        # Turn off bareword filehandles
+        feature->unimport::out_of( $target, 'bareword_filehandles' );
+
+        # Turn on Try/Catch
+        feature->import::into( $target, 'try' );
+        warnings->unimport::out_of( $target, 'experimental::try' );
+    }
+
     return;
 }
 
