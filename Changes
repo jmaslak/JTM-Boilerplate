@@ -1,4 +1,6 @@
 {{$NEXT}}
+ Joelle Maslak <jmaslak@antelopenet>
+ * Remove Test::Strict (Perl 5.38 compatability)
 
 2.211420  2021-05-22 03:11:56+00:00 UTC
  Joelle Maslak <jmaslak@antelopenet>
