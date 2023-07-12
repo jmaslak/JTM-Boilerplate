@@ -8,23 +8,10 @@
 
 # Basic testing
 
-use Test::More tests => 17;
+use Test::More tests => 15;
 
 # Instantiate the object
 require_ok('JCM::Boilerplate');
-
-# Verify switch statement works
-# (This is turned on in the boilerplate)
-eval {
-    use JCM::Boilerplate;
-
-    my $test = 1;
-    given ($test) {
-        when (/1/) {
-            pass('Boilerplate works!');
-        }
-    }
-} or fail('Boilerplate fails');
 
 eval {
     package foo_script {
@@ -69,17 +56,6 @@ require_ok('JTM::Boilerplate');
 
 # Verify switch statement works
 # (This is turned on in the boilerplate)
-eval {
-    use JTM::Boilerplate;
-
-    my $test = 1;
-    given ($test) {
-        when (/1/) {
-            pass('Boilerplate works!');
-        }
-    }
-} or fail('Boilerplate fails');
-
 eval {
     package foo_script {
         use JTM::Boilerplate 'script';

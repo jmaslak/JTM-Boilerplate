@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015-2021 Joelle Maslak
+# Copyright (C) 2015-2023 Joelle Maslak
 # All Rights Reserved - See License
 #
 
@@ -83,7 +83,6 @@ sub import ( $self, $type = 'script' ) {
     # feature->import::into($target, 'refaliasing');
     feature->import::into( $target, 'signatures' );
 
-    feature->import::into( $target, 'switch' );
     feature->import::into( $target, 'unicode_strings' );
     # warnings->unimport::out_of($target, 'experimental::refaliasing');
     warnings->unimport::out_of( $target, 'experimental::signatures' );
@@ -91,9 +90,6 @@ sub import ( $self, $type = 'script' ) {
     if ( $PERL_VERSION lt v5.24.0 ) {
         warnings->unimport::out_of( $target, 'experimental::postderef' );
     }
-
-    # For "switch" feature
-    warnings->unimport::out_of( $target, 'experimental::smartmatch' );
 
     # For "re 'strict'" feature
     warnings->unimport::out_of( $target, 'experimental::re_strict' );
