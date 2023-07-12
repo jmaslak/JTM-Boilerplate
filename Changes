@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+2.231930  2023-07-12 13:44:43-04:00 America/Toronto
  Joelle Maslak <jmaslak@antelopenet>
  * Remove Test::Strict (Perl 5.38 compatability)
  * Remove switch / smartmatch support
