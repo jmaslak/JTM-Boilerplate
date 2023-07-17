@@ -44,6 +44,7 @@ no warnings 'experimental::re_strict';
 use re 'strict';
 
 use English;
+use Feature::Compat::Try;
 use Import::Into;
 use Smart::Comments;
 use re;
@@ -57,7 +58,8 @@ sub import ( $self, $type = 'script' ) {
     warnings->import::into($target);
     autodie->import::into($target);
 
-    feature->import::into( $target, ':5.22' );
+    my ($ver) = "$PERL_MAJOR" =~ m/^v(\d+\.\d+)\..*$/;
+    feature->import::into( $target, "$ver" );
 
     utf8->import::into($target);    # Allow UTF-8 Source
 
@@ -79,6 +81,8 @@ sub import ( $self, $type = 'script' ) {
 
     feature->import::into( $target, 'postderef' );    # Not needed if feature bundle >= 5.23.1
 
+    feature->import::into( $target, 'Feature::Compat::Try' );
+
     # We haven't been using this
     # feature->import::into($target, 'refaliasing');
     feature->import::into( $target, 'signatures' );
@@ -93,7 +97,7 @@ sub import ( $self, $type = 'script' ) {
 
     # For "re 'strict'" feature
     warnings->unimport::out_of( $target, 'experimental::re_strict' );
-    re->import( 'strict' );
+    re->import('strict');
 
     if ( $PERL_VERSION ge v5.32.0 ) {
         # Turn off indirect syntax
@@ -110,10 +114,6 @@ sub import ( $self, $type = 'script' ) {
 
         # Turn off bareword filehandles
         feature->unimport::out_of( $target, 'bareword_filehandles' );
-
-        # Turn on Try/Catch
-        feature->import::into( $target, 'try' );
-        warnings->unimport::out_of( $target, 'experimental::try' );
     }
 
     return;

@@ -191,7 +191,6 @@ SKIP: {
 
 # Verify try/catch
 SKIP: {
-    skip "try/catch only woks on >= 5.34", 1 if $PERL_VERSION lt v5.34.0;
     $ret = eval '
         use JTM::Boilerplate;
 
