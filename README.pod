@@ -8,7 +8,7 @@ JTM::Boilerplate - Default Boilerplate for Joelle Maslak's Code
 
 =head1 VERSION
 
-version 2.231930
+version 2.231980
 
 =head1 SYNOPSIS
 
