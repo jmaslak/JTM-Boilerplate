@@ -1,6 +1,8 @@
 {{$NEXT}}
  Joelle Maslak <jmaslak@antelope.net>
  * Enable Try/Catch support in older Perls
+ * Enable Corina OOB support
+ * Enable defer support
  * Enable all Perl feature bundles
 
 2.231930  2023-07-12 13:44:43-04:00 America/Toronto
