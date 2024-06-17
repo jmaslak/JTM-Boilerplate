@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2015-2023 Joelle Maslak
+# Copyright (C) 2015-2024 Joelle Maslak
 # All Rights Reserved - See License
 #
 
@@ -11,14 +10,14 @@ use warnings;
 
 =head1 SYNOPSIS
 
-  use JCM::Boilerplate 'script';
+  use JTM::Boilerplate 'script';
 
 =head1 DESCRIPTION
 
 This module serves two purposes.  First, it sets some default imports,
 and turns on the strictures I've come to rely upon.  Secondly, it depends
 on a number of other modules to aid in setting up new environments (I can
-just do a "cpan JCM-Boilerplate" to install everything I need).
+just do a "cpan JTM-Boilerplate" to install everything I need).
 
 This module optionally takes one of two parameters, 'script', 'class',
 or 'role'. If 'script' is specified, the module assumes that you do not
@@ -99,7 +98,7 @@ sub import ( $self, $type = 'script' ) {
 
     # For "re 'strict'" feature
     warnings->unimport::out_of( $target, 'experimental::re_strict' );
-    re->import( 'strict' );
+    re->import('strict');
 
     if ( $PERL_VERSION ge v5.32.0 ) {
         # Turn off indirect syntax
@@ -122,4 +121,3 @@ sub import ( $self, $type = 'script' ) {
 }
 
 1;
-
